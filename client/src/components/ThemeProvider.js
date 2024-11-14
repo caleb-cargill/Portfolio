@@ -46,9 +46,9 @@ export const ThemeProvider = () => {
 
     return (
         <div>
-            <label class="toggle">
-                <input type="checkbox" class="toggle-input" defaultChecked={defaultDark} onClick={toggleTheme}/>
-                <span class="toggle-slider"></span>
+            <label className="toggle">
+                <input type="checkbox" className="toggle-input" defaultChecked={defaultDark} onClick={toggleTheme}/>
+                <span className="toggle-slider"></span>
             </label>
         </div>
     );

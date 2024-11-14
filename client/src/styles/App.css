@@ -1,10 +1,14 @@
 :root {
+  --primary-color: #111518;
+  --accent-color: #455561;
   --font-color: #333;
   --background-color: #eee;
   --link-color: cornflowerblue;
 }
 
 [data-theme="dark"] {
+  --primary-color: #FF9F1C;
+  --accent-color: #7EA3CC;
   --font-color: #eee;
   --background-color: #333;
   --link-color: lightblue;
@@ -19,4 +23,30 @@ body {
   text-align: center;
 }
 
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
 
+.block {
+  width: 100%;
+  max-width: 650px;
+  object-fit: cover;
+}
+
+.primaryHeader {
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+.accentHeader {
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
