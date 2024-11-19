@@ -12,6 +12,15 @@ const ContactMe = () => {
     const { sender, email, subject, message } = formData;
     const [feedback, setFeedback] = useState('');
 
+    const resetForm = () => 
+    {
+        setFormData({
+            sender: '',
+            email: '',
+            subject: '',
+            message: ''
+        });
+    };
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -26,7 +35,8 @@ const ContactMe = () => {
                 subject, 
                 message
             });
-            setFeedback('Message successfully sent. Thank you!');            
+            setFeedback('Message successfully sent. Thank you!');     
+            resetForm();       
         } catch (err) {
             if (err.response && err.response.data) {
                 console.error(err.response.data);
