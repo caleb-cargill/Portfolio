@@ -54,7 +54,7 @@ const ContactMe = () => {
                 <input type="text" placeholder="Name" name="sender" value={sender} onChange={onChange} required />
                 <input type="email" placeholder="Email" name="email" value={email} onChange={onChange} required />
                 <input type="text" placeholder="Subject" name="subject" value={subject} onChange={onChange} required />
-                <input type="text" placeholder="Message" name="message" value={message} onChange={onChange} required />
+                <textarea rows="4" placeholder="Message" name="message" value={message} onChange={onChange} required />
                 <input type="submit" value="Send" />
             </form>
             <p>{feedback}</p>
