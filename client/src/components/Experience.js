@@ -11,26 +11,34 @@ const Experience = () => {
         .catch(error => console.error(error));
     }, []);
 
-    return 
-    (
-        <table>
-            <thead>
-                <th>Company</th>
-                <th>Title</th>
-                <th>Start</th>
-                <th>End</th>
-            </thead>
-            <tbody>
-                {experiences.map(experience => (
-                    <tr key={experience._id}>
-                        <td>{experience.Company}</td>
-                        <td>{experience.Title}</td>
-                        <td>{new Date(experience.Start).toISOString().split('T')[0]}</td>
-                        <td>{new Date(experience.End).toISOString().split('T')[0]}</td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
+    return (
+        <div>
+            <h2 className="accentHeader">Experience</h2>
+            <div className="gallery">
+                <div className="block">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Title</th>
+                                <th>Start</th>
+                                <th>End</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {experiences.map(experience => (
+                                <tr key={experience._id}>
+                                    <td>{experience.company}</td>
+                                    <td>{experience.title}</td>
+                                    <td>{new Date(experience.start).toISOString().split('T')[0]}</td>
+                                    <td>{new Date(experience.end).toISOString().split('T')[0]}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     );
 };
 
