@@ -4,7 +4,11 @@
   --font-color: #333;
   --background-color: #eee;
   --link-color: cornflowerblue;
-  --primary-font: "arial";
+  --primary-font: "Courier New", monospace;
+  --body-font-size: 15px;
+  --border-bottom-input: 1px dashed rgba(255, 255, 255, 0.25);
+  --border-bottom-input-focus: 1px solid rgba(255, 255, 255, 0.75);
+  --border-bottom-transition: border-bottom 0.5s ease;
 }
 
 [data-theme="dark"] {
@@ -19,6 +23,8 @@ body {
   background-color: var(--background-color);
   color: var(--font-color);
   font-family: var(--primary-font);
+  font-size: var(--body-font-size);
+  min-height: 100vh;
 }
 
 .App {
