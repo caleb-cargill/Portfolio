@@ -8,8 +8,12 @@ const Experience = () => {
 
     useEffect(() => {
         axios.get('http://localhost:5000/api/experiences')
-        .then(response => setExperiences(response.data))
-        .then(() => setSelectedCompany(experiences.at(1).company))
+        .then(response => {
+            setExperiences(response.data);
+            if (response.data.length > 0) {
+                setSelectedCompany(response.data[0].company);
+            }
+        })
         .catch(error => console.error(error));
     }, []);    
 
@@ -26,12 +30,12 @@ const Experience = () => {
                             </label>
                         ))}
                     </div>
-                </div>
+                </div>                
                 <div className="block">
                     <ul>
-                        {/* {experiences.find(e => e.company === selectedCompany).descriptions.map(d => (
-                            <li>{d}</li>
-                        ))} */}
+                        {selectedCompany && experiences.find(e => e.company === selectedCompany)?.descriptions?.map((d, index) => (
+                            <li key={index}>{d}</li>
+                        ))}
                     </ul>
                 </div>
             </div>
