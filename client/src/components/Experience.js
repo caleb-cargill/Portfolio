@@ -20,8 +20,8 @@ const Experience = () => {
     return (
         <div>
             <h2 className="accentHeader">Experience</h2>
-            <div className="gallery">
-                <div className="block">
+            <div name="experiences">
+                <div name="companies">
                     <div className="radio-group">
                         {experiences.map(exp => (
                             <label className="radio-label">
@@ -31,12 +31,18 @@ const Experience = () => {
                         ))}
                     </div>
                 </div>                
-                <div className="block">
-                    <ul>
-                        {selectedCompany && experiences.find(e => e.company === selectedCompany)?.descriptions?.map((d, index) => (
-                            <li key={index}>{d}</li>
-                        ))}
-                    </ul>
+                <div name="descriptions">
+                    {selectedCompany && experiences.filter(e => e.company === selectedCompany).map(exp => (  
+                        <>
+                            <h3>{exp.title}</h3> 
+                            <p>{`${new Date(exp.start).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })} to ${new Date(exp.end).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`}</p>                    
+                            <ul key={exp.title}>
+                                {exp?.descriptions?.map((d, index) => (
+                                    <li key={index}>{d}</li>
+                                ))}
+                            </ul>
+                        </>
+                    ))}
                 </div>
             </div>
         </div>
