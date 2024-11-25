@@ -21,17 +21,17 @@ const Experience = () => {
         <div>
             <h2 className="accentHeader">Experience</h2>
             <div name="experiences">
-                <div name="companies">
-                    <div className="radio-group">
-                        {experiences.map(exp => (
+                <div name="companies" className="flexbox-item">
+                    {experiences.map(exp => (
+                        <div>
                             <label className="radio-label">
                                 <input name={exp.company} type='radio' id={exp.company} checked={selectedCompany === exp.company} onChange={() => setSelectedCompany(exp.company)} />
                                 <span className='inner-label'>{exp.company}</span>
                             </label>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>                
-                <div name="descriptions">
+                <div name="descriptions" className="flexbox-item">
                     {selectedCompany && experiences.filter(e => e.company === selectedCompany).map(exp => (  
                         <>
                             <h3>{exp.title}</h3> 
