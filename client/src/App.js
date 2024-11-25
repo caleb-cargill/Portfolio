@@ -1,6 +1,7 @@
 import { ThemeProvider, SetTheme } from './components/ThemeProvider';
 import ContactMe from './components/ContactMe';
 import Experience from './components/Experience';
+import Projects from './components/Projects';
 import './styles/App.css';
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
       </div>
       <div className="section">
         <Experience />
+      </div>
+      <div className="section">
+        <Projects/>
       </div>
     </div>
   );
