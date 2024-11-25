@@ -21,7 +21,7 @@ const Experience = () => {
         <div>
             <h2 className="accentHeader">Experience</h2>
             <div name="experiences">
-                <div name="companies" className="flexbox-item">
+                <div name="companies">
                     {experiences.map(exp => (
                         <div>
                             <label className="radio-label">
@@ -31,7 +31,7 @@ const Experience = () => {
                         </div>
                     ))}
                 </div>                
-                <div name="descriptions" className="flexbox-item">
+                <div name="descriptions">
                     {selectedCompany && experiences.filter(e => e.company === selectedCompany).map(exp => (  
                         <>
                             <h3>{exp.title}</h3> 
