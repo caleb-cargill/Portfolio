@@ -18,13 +18,13 @@ const Projects = () => {
         <div className={`bg-white shadow-lg rounded-xl p-4 ${className}`}>{children}</div>
       );
       
-      const Grid = ({ children, className = "" }) => (
-        <div className={`grid grid-cols-3 gap-4 p-4 ${className}`}>{children}</div>
-      );
-      
-      const GridItem = ({ children, className = "" }) => (
-        <div className={`relative ${className}`}>{children}</div>
-      );
+    const Grid = ({ children, className = "" }) => (
+      <div className={`grid grid-cols-3 gap-4 p-4 ${className}`}>{children}</div>
+    );
+    
+    const GridItem = ({ children, className = "" }) => (
+      <div className={`relative ${className}`}>{children}</div>
+    );
 
     const ProjectTile = ({ project }) => {
         const [flipped, setFlipped] = useState(false);
@@ -34,7 +34,7 @@ const Projects = () => {
             className={`relative w-full h-full cursor-pointer perspective-1000 ${
               project.size === "large" ? "col-span-2 row-span-2" : ""
             }`}
-            onClick={() => window.open(project.github, "_blank")}
+            onClick={() => window.open(project.sourceCodeLink, "_blank")}
           >
             <motion.div
               className="absolute w-full h-full" 
@@ -45,7 +45,7 @@ const Projects = () => {
               onMouseLeave={() => setFlipped(false)}
             >
               <Card className="absolute w-full h-full backface-hidden">
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover rounded-xl" />
+                <img src={project.imageName} alt={project.title} className="w-full h-full object-cover rounded-xl" />
                 <div className="absolute bottom-2 left-2 bg-black bg-opacity-50 text-white p-2 rounded">
                   {project.title}
                 </div>
@@ -60,13 +60,16 @@ const Projects = () => {
 
       
     return (
+      <div>
+        <h2 className="accentHeader">Projects</h2>
         <Grid className="grid grid-cols-3 gap-4 p-4">
-        {projects.map((project, index) => (
+          {projects.map((project, index) => (
             <GridItem key={index}>
-            <ProjectTile project={project} />
-            </GridItem>
-        ))}
+              <ProjectTile project={project} />
+              </GridItem>
+          ))}
         </Grid>
+      </div>
     );
 };
 

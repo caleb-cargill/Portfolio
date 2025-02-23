@@ -9,7 +9,8 @@ const projectSchema = new mongoose.Schema({
     sourceCodeLink: String,
     demoLink: String,
     imageName: String,
-    imageCaption: String
+    imageCaption: String,
+    size: String
 });
 
 module.exports = mongoose.model('Project', projectSchema);
