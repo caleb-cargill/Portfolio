@@ -6,6 +6,7 @@ import SocialLinks from './components/SocialLinks';
 import Spotlight from './components/Spotlight';
 import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
+import './styles/custom.css';
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -59,8 +60,8 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section className="px-4 md:px-8 max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary-600 dark:text-primary-400 mb-8">
+      <section className="section">
+        <h2 className="sectionHeader">
           About Me
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -78,32 +79,32 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section className="px-4 md:px-8 max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-primary-600 dark:text-primary-400 mb-8">
-                Experience
-            </h2>
+      <section className="section">
+        <h2 className="sectionHeader">
+            Experience
+        </h2>
         <Experience />
       </section>
 
       {/* Spotlight Section */}
-      <section className="px-4 md:px-8 max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary-600 dark:text-primary-400 mb-8">
+      <section className="section">
+        <h2 className="sectionHeader">
             Project Spotlight
         </h2>
         <Spotlight />
       </section>
 
       {/* Other Projects Section */}
-      <section className="px-4 md:px-8 max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary-600 dark:text-primary-400 mb-8">
+      <section className="section">
+        <h2 className="sectionHeader">
             Other Projects
         </h2>
         <Projects/>
       </section>
 
       {/* Contact Section */}
-      <section className="px-4 md:px-8 max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary-600 dark:text-primary-400 mb-8">
+      <section className="section">
+        <h2 className="sectionHeader">
             Contact Me
         </h2>
         <ContactMe/>

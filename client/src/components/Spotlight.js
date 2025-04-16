@@ -16,7 +16,7 @@ const Spotlight = () => {
     if (!spotlightProject) return null;
 
     return (
-        <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <section>
             <motion.div 
                 className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-2xl"
                 initial={{ opacity: 0, y: 20 }}

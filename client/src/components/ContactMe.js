@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/style.css';
+import '../styles/custom.css';
 import axios from 'axios';
 
 const ContactMe = () => {
@@ -48,16 +48,24 @@ const ContactMe = () => {
     };
 
     return (
-        <div className="form">
-            <form onSubmit={onSubmit}>
-                <input type="text" placeholder="Name" name="sender" value={sender} onChange={onChange} required />
-                <input type="email" placeholder="Email" name="email" value={email} onChange={onChange} required />
-                <input type="text" placeholder="Subject" name="subject" value={subject} onChange={onChange} required />
-                <textarea rows="4" placeholder="Message" name="message" value={message} onChange={onChange} required />
-                <input type="submit" value="Send" />
-            </form>
+        <form className="form">
+            <div className="form-group">
+                <input className="form-input" type="text" placeholder="Name" name="sender" value={sender} onChange={onChange} required />
+            </div>
+            <div className="form-group">
+                <input className="form-input" type="email" placeholder="Email" name="email" value={email} onChange={onChange} required />
+            </div>
+            <div className="form-group">
+                <input className="form-input" type="text" placeholder="Subject" name="subject" value={subject} onChange={onChange} required />
+            </div>
+            <div className="form-group">
+                <textarea className="form-input" rows="4" placeholder="Message" name="message" value={message} onChange={onChange} required />
+            </div>
+            <button type="submit" className="form-button" onClick={onSubmit}>
+                Submit
+            </button>
             <p>{feedback}</p>
-        </div>
+        </form>
     );
 };
 

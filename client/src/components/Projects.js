@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import '../styles/style.css';
+import '../styles/custom.css';
 import axios from 'axios';
 import { motion } from "framer-motion";
 
@@ -69,7 +69,7 @@ const Projects = () => {
     };
 
     return (
-        <div className="w-full">
+        <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((project, index) => (
                     <ProjectCard key={index} project={project} />

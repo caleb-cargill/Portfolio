@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import '../styles/style.css';
+import '../styles/custom.css';
 import axios from 'axios';
 
 const Experience = () => {
@@ -44,7 +44,7 @@ const Experience = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-12">
+        <div>
             
             {/* Search Bar */}
             <div className="mb-8">
