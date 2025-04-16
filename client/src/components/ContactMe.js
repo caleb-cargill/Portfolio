@@ -49,7 +49,6 @@ const ContactMe = () => {
 
     return (
         <div className="form">
-            <h2 className="accentHeader">Contact Me</h2>
             <form onSubmit={onSubmit}>
                 <input type="text" placeholder="Name" name="sender" value={sender} onChange={onChange} required />
                 <input type="email" placeholder="Email" name="email" value={email} onChange={onChange} required />
