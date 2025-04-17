@@ -15,6 +15,10 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    imageUrl: {
+        type: String,
+        required: true
+    },
     sourceCodeLink: {
         type: String,
         required: true

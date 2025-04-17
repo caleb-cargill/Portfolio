@@ -9,21 +9,15 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-gray-600 dark:text-gray-300">
-              © {currentYear} Caleb Cargill. All rights reserved.
+              Designed and Developed by Caleb Cargill.
             </p>
           </div>
           <div className="flex space-x-6">
             <a
-              href="#"
+              href="#home"
               className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
             >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
-            >
-              Terms of Service
+              Home
             </a>
           </div>
         </div>

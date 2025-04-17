@@ -22,7 +22,7 @@ const Projects = () => {
             >
                 <div className="relative aspect-video">
                     <img 
-                        src={project.imageName} 
+                        src={project.imageUrl} 
                         alt={project.title}
                         className="w-full h-full object-cover"
                     />
@@ -36,6 +36,14 @@ const Projects = () => {
                     <p className="text-gray-600 dark:text-gray-300 mb-4">
                         {project.description}
                     </p>
+
+                    {project.tags && project.tags.map((tag) => {
+                            return (
+                                <span key={tag} className="inline-block px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 m-1">
+                                    {tag}
+                                </span>
+                            );
+                        })}
                     
                     <div className="flex gap-4">
                         <a

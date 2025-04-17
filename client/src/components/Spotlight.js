@@ -26,7 +26,7 @@ const Spotlight = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div className="relative aspect-video lg:aspect-auto">
                         <img 
-                            src={spotlightProject.imageName} 
+                            src={spotlightProject.imageUrl} 
                             alt={spotlightProject.title}
                             className="w-full h-full object-cover"
                         />
@@ -40,8 +40,16 @@ const Spotlight = () => {
                         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
                             {spotlightProject.description}
                         </p>
+
+                        {spotlightProject.tags && spotlightProject.tags.map((tag) => {
+                            return (
+                                <span key={tag} className="inline-block px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 m-1">
+                                    {tag}
+                                </span>
+                            );
+                        })}
                         
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap gap-4 mt-6">
                             <a
                                 href={spotlightProject.sourceCodeLink}
                                 target="_blank"
