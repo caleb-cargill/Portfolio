@@ -9,6 +9,9 @@
   --border-bottom-input: 1px dashed rgba(255, 255, 255, 0.25);
   --border-bottom-input-focus: 1px solid rgba(255, 255, 255, 0.75);
   --border-bottom-transition: border-bottom 0.5s ease;
+  --glass-bg: bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-2xl shadow-xl;
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
 [data-theme="dark"] {
@@ -17,6 +20,8 @@
   --font-color: #eee;
   --background-color: #333;
   --link-color: lightblue;
+  --glass-bg: bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-2xl shadow-xl;
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -25,6 +30,7 @@ body {
   font-family: var(--primary-font);
   font-size: var(--body-font-size);
   min-height: 100vh;
+  background-image: linear-gradient(45deg, var(--accent-color) 0%, var(--background-color) 100%);
 }
 
 .App {
@@ -47,29 +53,44 @@ body {
   width: 100%;
   max-width: 650px;
   object-fit: cover;
+  backdrop-filter: blur(8px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 10px;
 }
 
 .primaryHeader {
   text-transform: uppercase;
   color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .accentHeader {
   text-transform: uppercase;
   color: var(--accent-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 div[Name="welcome"] {
   width: 100%;
   height: 100vh;
-  background-color: var(--accent-color);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid var(--glass-border);
 }
 
 div[Name="intro"] {  
   margin: auto;
   width: 100%;
+  padding: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 .section {
@@ -77,4 +98,10 @@ div[Name="intro"] {
   height: 75vh;
   display: flex;
   flex-direction: column;
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  margin: 1rem 0;
+  border-radius: 15px;
 }

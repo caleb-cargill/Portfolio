@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import '../styles/custom.css';
 import axios from 'axios';
+import { motion } from "framer-motion";
 
 const Experience = () => {
     const [experiences, setExperiences] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [searchTerm, setSearchTerm] = useState('');
+    const [selected, setSelected] = useState(0);
+    const [selectedCompany, setSelectedCompany] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:5000/api/experiences')
@@ -14,149 +15,135 @@ const Experience = () => {
                     new Date(b.start) - new Date(a.start)
                 );
                 setExperiences(sortedExperiences);
+                if (sortedExperiences.length > 0) {
+                    setSelectedCompany(sortedExperiences[0].company);
+                }
             })
             .catch(error => console.error(error));
     }, []);
 
-    const filteredExperiences = experiences.filter(exp => 
-        exp.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        exp.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        exp.skills?.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()))
-    );
+    const uniqueCompanies = [...new Set(experiences.map(exp => exp.company))];
+    const filteredExperiences = experiences.filter(exp => exp.company === selectedCompany);
 
-    const currentExperience = filteredExperiences[currentIndex];
-
-    const formatDate = (date) => {
-        return new Date(date).toLocaleDateString('en-US', { 
-            month: 'short', 
-            year: 'numeric' 
-        });
+    const getFormattedDate = (date) => {
+        if (date === null) return "Present";
+        const parsed = new Date(date); // Ensures it's a Date object
+        if (isNaN(parsed)) return "Invalid Date";
+        
+        return parsed.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long"
+                });
     };
 
-    const nextExperience = () => {
-        setCurrentIndex((prev) => 
-            prev < filteredExperiences.length - 1 ? prev + 1 : prev
-        );
-    };
+    const getYearMonthDiff = (startDate, endDate) => {
+        if (endDate === null) endDate = new Date();
 
-    const prevExperience = () => {
-        setCurrentIndex((prev) => prev > 0 ? prev - 1 : prev);
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+      
+        if (isNaN(start) || isNaN(end)) {
+          return "Invalid Date";
+        }
+      
+        let years = end.getFullYear() - start.getFullYear();
+        let months = end.getMonth() - start.getMonth();
+      
+        if (months < 0) {
+          years -= 1;
+          months += 12;
+        }
+      
+        const parts = [];
+        if (years > 0) parts.push(`${years} Year${years > 1 ? "s" : ""}`);
+        if (months > 0) parts.push(`${months} Month${months > 1 ? "s" : ""}`);
+      
+        return parts.length > 0 ? parts.join(", ") : "0 Months";
+      };
+
+    const getTimeAtCompany = (company, experiences) => {
+        var companyExperiences = 
+            experiences
+            .filter(e => e.company === company)
+            .sort((a, b) => 
+                new Date(b.start) - new Date(a.start)
+            );
+        
+        return getYearMonthDiff(companyExperiences[companyExperiences.length - 1].start, companyExperiences[0].end);
     };
 
     return (
-        <div>
-            
-            {/* Search Bar */}
-            <div className="mb-8">
-                <input
-                    type="text"
-                    placeholder="Search by company, role, or skills..."
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
-                             bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
-                             focus:outline-none focus:ring-2 focus:ring-primary-500"
-                    value={searchTerm}
-                    onChange={(e) => {
-                        setSearchTerm(e.target.value);
-                        setCurrentIndex(0);
-                    }}
-                />
+        <div className="grid grid-cols-3 gap-6">
+            <div className="glass p-6">
+                <h2 className="text-2xl font-bold mb-4">Companies</h2>
+                <div className="space-y-2">
+                    {uniqueCompanies.map((company, index) => (
+                        <div key={index}>
+                            <label className="relative">
+                                <input 
+                                    type="radio" 
+                                    name="company" 
+                                    className="peer hidden" 
+                                    checked={selectedCompany === company} 
+                                    onChange={() => {
+                                        setSelectedCompany(company);
+                                        setSelected(0);
+                                    }}
+                                />
+                                <div className="toggle">
+                                    <div>
+                                    <p>{company}</p>
+                                    <p class="text-sm text-gray-300">{getTimeAtCompany(company, experiences)}</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    ))}
+                </div>
             </div>
 
-            {currentExperience && (
-                <div className="relative">
-                    {/* Navigation Timeline */}
-                    <div className="flex items-center justify-between mb-8">
-                        <button
-                            onClick={prevExperience}
-                            disabled={currentIndex === 0}
-                            className={`p-2 rounded-full transition-colors duration-200
-                                     ${currentIndex === 0 
-                                        ? 'text-gray-400 cursor-not-allowed' 
-                                        : 'text-primary-600 hover:bg-primary-100 dark:hover:bg-primary-900/30'}`}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </button>
+            <div className="col-span-2 glass p-6">
+                <h1 className="text-2xl font-bold mb-4">{selectedCompany}</h1>
 
-                        <div className="flex-1 mx-4">
-                            <div className="relative">
-                                <div className="absolute inset-0 flex items-center">
-                                    <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                <div className="flex space-x-4 mb-6">                 
+                    {filteredExperiences.map((role, index) => (
+                        <div key={index}>
+                            <label className="relative">
+                                <input 
+                                    type="radio" 
+                                    name="role" 
+                                    className="peer hidden" 
+                                    checked={selected === index} 
+                                    onChange={() => setSelected(index)}
+                                />
+                                <div className="toggle">
+                                    <div>
+                                    <p>{role.title}</p>
+                                    <p class="text-sm text-gray-300">{getYearMonthDiff(role.start, role.end)}</p>
+                                    </div>
                                 </div>
-                                <div className="relative flex justify-between">
-                                    {filteredExperiences.map((_, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => setCurrentIndex(index)}
-                                            className={`w-3 h-3 rounded-full transition-colors duration-200
-                                                     ${index === currentIndex 
-                                                        ? 'bg-primary-600 dark:bg-primary-400' 
-                                                        : 'bg-gray-300 dark:bg-gray-600 hover:bg-primary-400 dark:hover:bg-primary-500'}`}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
+                            </label>
                         </div>
-
-                        <button
-                            onClick={nextExperience}
-                            disabled={currentIndex === filteredExperiences.length - 1}
-                            className={`p-2 rounded-full transition-colors duration-200
-                                     ${currentIndex === filteredExperiences.length - 1 
-                                        ? 'text-gray-400 cursor-not-allowed' 
-                                        : 'text-primary-600 hover:bg-primary-100 dark:hover:bg-primary-900/30'}`}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    {/* Experience Content */}
-                    <div className="space-y-6">
-                        <div className="flex justify-between items-start">
-                            <div>
-                                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                                    {currentExperience.title}
-                                </h3>
-                                <p className="text-primary-600 dark:text-primary-400 font-medium text-lg">
-                                    {currentExperience.company}
-                                </p>
-                            </div>
-                            <div className="text-sm text-gray-500 dark:text-gray-400">
-                                {formatDate(currentExperience.start)} - {currentExperience.end ? formatDate(currentExperience.end) : 'Present'}
-                            </div>
-                        </div>
-
-                        {/* Skills Tags */}
-                        {currentExperience.skills && currentExperience.skills.length > 0 && (
-                            <div className="flex flex-wrap gap-2">
-                                {currentExperience.skills.map((skill, index) => (
-                                    <span
-                                        key={index}
-                                        className="px-3 py-1 text-sm rounded-full bg-primary-100 dark:bg-primary-900/30
-                                                 text-primary-700 dark:text-primary-300 hover:bg-primary-200
-                                                 dark:hover:bg-primary-900/50 transition-colors duration-200"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        )}
-
-                        {/* Description */}
-                        <ul className="space-y-3 text-gray-600 dark:text-gray-300">
-                            {currentExperience.descriptions?.map((desc, index) => (
-                                <li key={index} className="flex items-start">
-                                    <span className="text-primary-500 mr-2 mt-1">•</span>
-                                    <span>{desc}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    ))}
                 </div>
-            )}
+
+                <motion.div                    
+                    key={selected}>
+                    <div>
+                        <div>                            
+                            <p className="text-xl font-semibold">{filteredExperiences[selected]?.title}</p>
+                            <span className="text-sm text-muted-foreground">
+                                    ({getFormattedDate(filteredExperiences[selected]?.start)} - {getFormattedDate(filteredExperiences[selected]?.end)})
+                            </span>
+                            <ul className="mt-4 list-disc list-inside text-gray-600 dark:text-gray-300">
+                                {filteredExperiences[selected]?.descriptions.map((item, i) => (
+                                    <li key={i}>{item}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
         </div>
     );
 };

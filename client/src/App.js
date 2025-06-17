@@ -68,12 +68,12 @@ function App() {
           About Me
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+          <div className="p-6 glass">
             <p className="text-gray-600 dark:text-gray-300">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
             </p>
           </div>
-          <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+          <div className="p-6 glass">
             <p className="text-gray-600 dark:text-gray-300">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
             </p>

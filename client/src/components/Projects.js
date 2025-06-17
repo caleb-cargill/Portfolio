@@ -17,9 +17,8 @@ const Projects = () => {
     const ProjectCard = ({ project }) => {
         return (
             <motion.div
-                className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl"
-                whileHover={{ y: -5 }}
-            >
+                className="glass"
+                whileHover={{ y: -5 }}>
                 <div className="relative aspect-video">
                     <img 
                         src={project.imageUrl} 
