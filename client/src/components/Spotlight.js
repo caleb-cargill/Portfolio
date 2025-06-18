@@ -6,7 +6,7 @@ const Spotlight = () => {
     const [spotlightProject, setSpotlightProject] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/projects/spotlight")
+        axios.get("http://localhost:5001/api/projects/spotlight")
             .then(response => {
                 setSpotlightProject(response.data);
             })

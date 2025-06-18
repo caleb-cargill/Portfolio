@@ -7,7 +7,7 @@ const Projects = () => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/projects")
+        axios.get("http://localhost:5001/api/projects")
             .then(response => {
                 setProjects(response.data);
             })

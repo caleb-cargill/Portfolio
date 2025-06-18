@@ -9,7 +9,7 @@ const Experience = () => {
     const [selectedCompany, setSelectedCompany] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/experiences')
+        axios.get('http://localhost:5001/api/experiences')
             .then(response => {
                 const sortedExperiences = response.data.sort((a, b) => 
                     new Date(b.start) - new Date(a.start)
