@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200 relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden">
       {/* Cursor Halo */}
       <div 
         className="fixed pointer-events-none w-[500px] h-[500px] rounded-full bg-gradient-to-r from-primary-100/20 to-primary-200/20 dark:from-primary-900/20 dark:to-primary-800/20 blur-3xl transition-transform duration-100"
@@ -35,7 +35,7 @@ function App() {
       <SocialLinks />
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-200">
+      <section id="home" className="relative min-h-[80vh] flex items-center justify-center glass">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-100/20 to-transparent dark:from-primary-900/20"></div>
         </div>
@@ -68,12 +68,12 @@ function App() {
           About Me
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 glass">
+          <div className="p-6 glass rounded-2xl">
             <p className="text-gray-600 dark:text-gray-300">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
             </p>
           </div>
-          <div className="p-6 glass">
+          <div className="p-6 glass rounded-2xl">
             <p className="text-gray-600 dark:text-gray-300">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
             </p>

@@ -17,7 +17,7 @@ const Projects = () => {
     const ProjectCard = ({ project }) => {
         return (
             <motion.div
-                className="glass"
+                className="glass rounded-2xl"
                 whileHover={{ y: -5 }}>
                 <div className="relative aspect-video">
                     <img 

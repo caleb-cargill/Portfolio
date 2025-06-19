@@ -74,7 +74,7 @@ const Experience = () => {
 
     return (
         <div className="grid grid-cols-3 gap-6">
-            <div className="glass p-6">
+            <div className="glass p-6 rounded-2xl">
                 <h2 className="text-2xl font-bold mb-4">Companies</h2>
                 <div className="space-y-2">
                     {uniqueCompanies.map((company, index) => (
@@ -102,7 +102,7 @@ const Experience = () => {
                 </div>
             </div>
 
-            <div className="col-span-2 glass p-6">
+            <div className="col-span-2 glass p-6 rounded-2xl">
                 <h1 className="text-2xl font-bold mb-4">{selectedCompany}</h1>
 
                 <div className="flex space-x-4 mb-6">                 
