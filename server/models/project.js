@@ -21,7 +21,7 @@ const projectSchema = new mongoose.Schema({
     },
     sourceCodeLink: {
         type: String,
-        required: true
+        required: false
     },
     demoLink: {
         type: String,
@@ -34,8 +34,10 @@ const projectSchema = new mongoose.Schema({
     priority: {
         type: Number,
         default: 0
-    }
-}, {
+    },
+    tags: [{ type: String }],
+    languages: [{ type: String }]
+    }, {
     timestamps: true
 });
 
