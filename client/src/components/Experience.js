@@ -26,7 +26,7 @@ const Experience = () => {
     const filteredExperiences = experiences.filter(exp => exp.company === selectedCompany);
 
     const getFormattedDate = (date) => {
-        if (date === null) return "Present";
+        if (!date) return "Present";
         const parsed = new Date(date); // Ensures it's a Date object
         if (isNaN(parsed)) return "Invalid Date";
         
@@ -37,7 +37,7 @@ const Experience = () => {
     };
 
     const getYearMonthDiff = (startDate, endDate) => {
-        if (endDate === null) endDate = new Date();
+        if (!endDate) endDate = new Date();
 
         const start = new Date(startDate);
         const end = new Date(endDate);
