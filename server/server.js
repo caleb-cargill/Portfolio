@@ -8,7 +8,6 @@ console.log('Allowed Origin:', process.env.FRONT_URI);
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// ✅ Apply CORS early and globally
 app.use(cors({
   origin: process.env.FRONT_URI,
   credentials: true
@@ -26,13 +25,14 @@ mongoose.connect(process.env.MONGO_URI, {
   console.error('MongoDB failed to connect:', err);
 });
 
-// ✅ Load routes after CORS is configured
 const contactRoutes = require('./routes/contact');
 const infoRoutes = require('./routes/info');
 const projectRoutes = require('./routes/projects');
+const settingsRoutes = require('./routes/settings');
 app.use('/api', contactRoutes);
 app.use('/api', infoRoutes);
 app.use('/api', projectRoutes);
+app.use('/api', settingsRoutes);
 
 console.log('About to start server...');
 app.listen(PORT, '0.0.0.0', () => {
