@@ -7,11 +7,19 @@ import Spotlight from './components/Spotlight';
 import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
 import './styles/custom.css';
+import axios from 'axios';
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [settings, setSettings] = useState(null);
 
   useEffect(() => {
+    axios.get('http://localhost:5001/api/settings')
+    .then(response => {
+      setSettings(response.data);
+    })
+    .catch(error => console.error('Error fetching settings:', error));
+
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -44,11 +52,11 @@ function App() {
             Caleb Cargill
           </h1>
           <h2 className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-8">
-            Software Engineer passionate about helping others
+            {settings?.missionStatement}
           </h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">
-              I build innovative solutions that make a difference. With expertise in full-stack development and a passion for creating meaningful user experiences, I'm dedicated to crafting software that solves real-world problems.
+              {settings?.impactStatement}
             </p>
           </div>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
@@ -70,12 +78,12 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="p-6 glass rounded-2xl">
             <p className="text-gray-600 dark:text-gray-300">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+              {settings?.aboutMeOne}
             </p>
           </div>
           <div className="p-6 glass rounded-2xl">
             <p className="text-gray-600 dark:text-gray-300">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+              {settings?.aboutMeTwo}
             </p>
           </div>
         </div>
