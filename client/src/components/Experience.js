@@ -135,9 +135,9 @@ const Experience = () => {
                             <span className="text-sm text-muted-foreground">
                                     ({getFormattedDate(filteredExperiences[selected]?.start)} - {getFormattedDate(filteredExperiences[selected]?.end)})
                             </span>
-                            <ul className="mt-4 list-disc list-inside text-gray-600 dark:text-gray-300">
+                            <ul className="mt-4 mx-6 list-disc list-outside text-gray-600 dark:text-gray-300">
                                 {filteredExperiences[selected]?.descriptions.map((item, i) => (
-                                    <li key={i}>{item}</li>
+                                    <li className="whitespace-pre-line" key={i}>{item.trim()}</li>
                                 ))}
                             </ul>
                         </div>
