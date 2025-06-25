@@ -43,11 +43,16 @@ function App() {
       <SocialLinks />
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-[80vh] flex items-center justify-center glass">
+      <section id="home" className="relative min-h-[80vh] flex items-center justify-center glass">          
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-100/20 to-transparent dark:from-primary-900/20"></div>
         </div>
-        <div className="relative z-10 text-center px-4 md:px-8 max-w-7xl mx-auto">
+        <div className="relative z-10 text-center px-4 md:px-8 max-w-7xl mx-auto">          
+            <img 
+              src={settings?.headshotImageUrl} 
+              alt="Caleb Cargill Headshot" 
+              class="w-48 h-48 mb-8 mx-auto md:w-64 md:h-64 object-cover rounded-full shadow-lg transition duration-300 transform hover:scale-105 hover:opacity-25 hover:-translate-y-1"
+            />          
           <h1 className="text-5xl md:text-7xl font-bold text-primary-600 dark:text-primary-400 mb-6">
             Caleb Cargill
           </h1>
