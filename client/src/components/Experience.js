@@ -72,6 +72,29 @@ const Experience = () => {
         return getYearMonthDiff(companyExperiences[companyExperiences.length - 1].start, companyExperiences[0].end);
     };
 
+    const highlightSkills = (text, skills = []) =>{
+        if (!text || !skills?.length) return text;
+
+        // Escape any special characters in the skill words to safely use in regex
+        const escapedSkills = skills.map(skill => skill.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+
+        const regex = new RegExp(`\\b(${escapedSkills.join('|')})\\b`, 'gi');
+
+        const parts = text.split(regex);
+
+        return parts.map((part, index) => {
+            const isMatch = skills.some(skill => skill.toLowerCase() === part.toLowerCase());
+            return isMatch ? (
+            <span key={index} className="text-primary-400 font-semibold">
+                {part}
+            </span>
+            ) : (
+            part
+            );
+        });
+    };
+
+
     return (
         <div className="grid grid-cols-3 gap-6">
             <div className="glass p-6 rounded-2xl">
@@ -136,10 +159,13 @@ const Experience = () => {
                                     ({getFormattedDate(filteredExperiences[selected]?.start)} - {getFormattedDate(filteredExperiences[selected]?.end)})
                             </span>
                             <ul className="mt-4 mx-6 list-disc list-outside text-gray-600 dark:text-gray-300">
-                                {filteredExperiences[selected]?.descriptions.map((item, i) => (
-                                    <li className="whitespace-pre-line" key={i}>{item.trim()}</li>
-                                ))}
+                            {filteredExperiences[selected]?.descriptions.map((item, i) => (
+                                <li className="whitespace-pre-line" key={i}>
+                                    {highlightSkills(item.trim(), filteredExperiences[selected]?.skills)}
+                                </li>
+                            ))}
                             </ul>
+
                         </div>
                     </div>
                 </motion.div>

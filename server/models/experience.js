@@ -5,7 +5,8 @@ const experienceSchema = new mongoose.Schema({
     title: String,
     start: Date,
     end: Date,
-    descriptions: [{ type: String }]
+    descriptions: [{ type: String }],
+    skills: [{ type: String }],
 });
 
 module.exports = mongoose.model('Experience', experienceSchema);

@@ -17,13 +17,12 @@ const Projects = () => {
     const ProjectCard = ({ project }) => {
         return (
             <motion.div
-                className="glass rounded-2xl"
-                whileHover={{ y: -5 }}>
+                className="glass rounded-2xl">
                 <div className="relative aspect-video">
                     <img 
                         src={project.imageUrl} 
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover "
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
