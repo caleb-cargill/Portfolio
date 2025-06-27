@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { endpoints } from '../api/endpoints'
 
 const SocialLinks = () => {
   const [settings, setSettings] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/settings')
+    axios.get(endpoints.settings)
     .then(response => {
       setSettings(response.data);
     })

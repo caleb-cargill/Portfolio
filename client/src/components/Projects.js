@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import '../styles/custom.css';
 import axios from 'axios';
 import { motion } from "framer-motion";
+import { endpoints } from '../api/endpoints';
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5001/api/projects")
+        axios.get(endpoints.projects)
             .then(response => {
                 setProjects(response.data);
             })

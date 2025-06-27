@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import '../styles/custom.css';
 import axios from 'axios';
 import { motion } from "framer-motion";
+import { endpoints } from '../api/endpoints';
 
 const Experience = () => {
     const [experiences, setExperiences] = useState([]);
@@ -9,7 +10,7 @@ const Experience = () => {
     const [selectedCompany, setSelectedCompany] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:5001/api/experiences')
+        axios.get(endpoints.experiences)
             .then(response => {
                 const sortedExperiences = response.data.sort((a, b) => 
                     new Date(b.start) - new Date(a.start)

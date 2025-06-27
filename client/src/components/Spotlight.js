@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from "framer-motion";
+import { endpoints } from '../api/endpoints';
 
 const Spotlight = () => {
     const [spotlightProject, setSpotlightProject] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:5001/api/projects/spotlight")
+        axios.get(endpoints.spotlightProject)
             .then(response => {
                 setSpotlightProject(response.data);
             })

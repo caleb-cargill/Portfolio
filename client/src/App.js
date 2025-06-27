@@ -8,13 +8,14 @@ import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
 import './styles/custom.css';
 import axios from 'axios';
+import { endpoints } from './api/endpoints';
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [settings, setSettings] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/settings')
+    axios.get(endpoints.settings)
     .then(response => {
       setSettings(response.data);
     })

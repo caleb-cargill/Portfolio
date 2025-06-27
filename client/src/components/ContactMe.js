@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../styles/custom.css';
 import axios from 'axios';
+import { endpoints } from '../api/endpoints';
 
 const ContactMe = () => {
     const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ const ContactMe = () => {
         try {
             
             setFeedback('Sending Message...'); 
-            await axios.post('http://localhost:5001/api/contact', {
+            await axios.post(endpoints.contact, {
                 sender,
                 email,
                 subject, 
