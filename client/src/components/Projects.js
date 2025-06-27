@@ -38,7 +38,7 @@ const Projects = () => {
                     <div>
                         {project.tags && project.tags.map((tag) => {
                             return (
-                                <span key={tag} className="inline-block text-xs text-primary-600 m-1">
+                                <span key={tag} className="inline-block text-xs text-primary-400 font-semibold m-1">
                                     {tag}
                                 </span>
                             );

@@ -44,7 +44,7 @@ const Spotlight = () => {
                         <div>
                         {spotlightProject.tags && spotlightProject.tags.map((tag) => {
                             return (
-                                <span key={tag} className="inline-block text-md text-primary-600 mr-4 mb-4">
+                                <span key={tag} className="inline-block text-md text-primary-400 font-semibold mr-4 mb-4">
                                     {tag}
                                 </span>
                             );
