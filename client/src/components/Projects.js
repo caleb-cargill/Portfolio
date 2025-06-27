@@ -38,7 +38,7 @@ const Projects = () => {
                     <div>
                         {project.tags && project.tags.map((tag) => {
                             return (
-                                <span key={tag} className="inline-block text-xs text-primary-600 m-1 hover:text-gray-200">
+                                <span key={tag} className="inline-block text-xs text-primary-600 m-1">
                                     {tag}
                                 </span>
                             );
@@ -48,7 +48,7 @@ const Projects = () => {
                     <div>
                         {project.languages && project.languages.map((tag) => {
                             return (
-                                <span key={tag} className="inline-block px-2 py-2 bg-primary-100 dark:bg-primary-700 rounded-lg text-xs text-gray-600 dark:text-gray-300 m-1 hover:bg-gray-200 dark:hover:bg-gray-600">
+                                <span key={tag} className="inline-block px-2 py-2 bg-primary-100 dark:bg-primary-700 rounded-lg text-xs text-gray-600 dark:text-gray-300 m-1">
                                     {tag}
                                 </span>
                             );

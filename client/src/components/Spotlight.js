@@ -44,7 +44,7 @@ const Spotlight = () => {
                         <div>
                         {spotlightProject.tags && spotlightProject.tags.map((tag) => {
                             return (
-                                <span key={tag} className="inline-block text-md text-primary-600 mr-4 mb-4 hover:text-gray-200">
+                                <span key={tag} className="inline-block text-md text-primary-600 mr-4 mb-4">
                                     {tag}
                                 </span>
                             );
@@ -54,7 +54,7 @@ const Spotlight = () => {
                         <div>
                             {spotlightProject.languages && spotlightProject.languages.map((tag) => {
                                 return (
-                                    <span key={tag} className="inline-block px-2 py-2 bg-primary-100 dark:bg-primary-700 rounded-lg text-md mr-4 mb-4 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">
+                                    <span key={tag} className="inline-block px-2 py-2 bg-primary-100 dark:bg-primary-700 rounded-lg text-md mr-4 mb-4 text-gray-600 dark:text-gray-300">
                                         {tag}
                                     </span>
                                 );
