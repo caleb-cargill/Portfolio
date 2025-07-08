@@ -16,8 +16,14 @@ const Footer = () => {
             <a
               href="#home"
               className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+              title="Home"
             >
-              Home
+              <svg
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24">
+                <path d="M4 12l8-8 8 8v8a2 2 0 01-2 2h-3a1 1 0 01-1-1v-4h-4v4a1 1 0 01-1 1H6a2 2 0 01-2-2v-8z" />
+              </svg>              
             </a>
             {socials.map((link, index) => (
               <a
@@ -31,11 +37,11 @@ const Footer = () => {
                 {link.icon}
               </a>
             ))}
-          </div>          
+          </div>
         </div>
       </div>
     </footer>
   );
 };
 
-export default Footer; 
+export default Footer;
