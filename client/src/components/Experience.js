@@ -97,7 +97,7 @@ const Experience = () => {
 
 
     return (
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="glass p-6 rounded-2xl">
                 <h2 className="text-2xl font-bold mb-4">Companies</h2>
                 <div className="space-y-2">
@@ -117,7 +117,7 @@ const Experience = () => {
                                 <div className="toggle">
                                     <div>
                                     <p>{company}</p>
-                                    <p class="text-sm text-gray-300">{getTimeAtCompany(company, experiences)}</p>
+                                    <p className="text-sm text-gray-300">{getTimeAtCompany(company, experiences)}</p>
                                     </div>
                                 </div>
                             </label>
@@ -126,10 +126,10 @@ const Experience = () => {
                 </div>
             </div>
 
-            <div className="col-span-2 glass p-6 rounded-2xl">
+            <div className="md:col-span-2 glass p-6 rounded-2xl">
                 <h1 className="text-2xl font-bold mb-4">{selectedCompany}</h1>
 
-                <div className="flex space-x-4 mb-6">                 
+                <div className="block space-y-2 md:space-y-0 md:flex md:space-x-4 mb-6">                 
                     {filteredExperiences.map((role, index) => (
                         <div key={index}>
                             <label className="relative">
@@ -143,7 +143,7 @@ const Experience = () => {
                                 <div className="toggle">
                                     <div>
                                     <p>{role.title}</p>
-                                    <p class="text-sm text-gray-300">{getYearMonthDiff(role.start, role.end)}</p>
+                                    <p className="text-sm text-gray-300">{getYearMonthDiff(role.start, role.end)}</p>
                                     </div>
                                 </div>
                             </label>

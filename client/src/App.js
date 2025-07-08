@@ -35,11 +35,11 @@ function App() {
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-100/20 to-transparent dark:from-primary-900/20"></div>
         </div>
-        <div className="relative z-10 text-center px-4 md:px-8 max-w-7xl mx-auto">          
+        <div className="relative z-10 text-center py-4 px-4 md:px-8 md:py-8 max-w-7xl mx-auto">          
             <img 
               src={settings?.headshotImageUrl} 
               alt="Caleb Cargill Headshot" 
-              class="w-48 h-48 mb-8 mx-auto md:w-64 md:h-64 object-cover rounded-full shadow-lg transition duration-300 transform hover:scale-105 hover:opacity-25 hover:-translate-y-1"
+              className="w-48 h-48 mb-8 mx-auto md:w-64 md:h-64 object-cover rounded-full shadow-lg transition duration-300 transform hover:scale-105 hover:opacity-25 hover:-translate-y-1"
             />          
           <h1 className="text-5xl md:text-7xl font-bold text-primary-600 dark:text-primary-400 mb-6">
             Caleb Cargill
@@ -69,12 +69,14 @@ function App() {
           About Me
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 glass rounded-2xl">
+          <div className="rrow-start-1 p-6 glass rounded-2xl flex items-center">
             <p className="text-gray-600 dark:text-gray-300">
               {settings?.aboutMeOne}
             </p>
           </div>
-          <div className="p-6 glass rounded-2xl">
+          <img className="row-start-2 md:row-start-1 md:col-start-1 rounded-2xl" src="https://images.unsplash.com/photo-1504439268584-b72c5019471e?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Family"/>
+          <img className="row-start-4 md:row-start-2 rounded-2xl" src="https://images.unsplash.com/photo-1530143311094-34d807799e8f?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Family"/>
+          <div className="row-start-3 md:row-start-2 md:col-start-1 p-6 glass rounded-2xl flex items-center">
             <p className="text-gray-600 dark:text-gray-300">
               {settings?.aboutMeTwo}
             </p>
