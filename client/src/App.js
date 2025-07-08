@@ -5,13 +5,13 @@ import NavigationMenu from './components/NavigationMenu';
 import SocialLinks from './components/SocialLinks';
 import Spotlight from './components/Spotlight';
 import Footer from './components/Footer';
+import CursorHalo from './components/CursorHalo';
 import { useEffect, useState } from 'react';
 import './styles/custom.css';
 import axios from 'axios';
 import { endpoints } from './api/endpoints';
 
 function App() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [settings, setSettings] = useState(null);
 
   useEffect(() => {
@@ -19,25 +19,12 @@ function App() {
     .then(response => {
       setSettings(response.data);
     })
-    .catch(error => console.error('Error fetching settings:', error));
-
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    .catch(error => console.error('Error fetching settings:', error));    
   }, []);
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Cursor Halo */}
-      <div 
-        className="fixed pointer-events-none w-[500px] h-[500px] rounded-full bg-gradient-to-r from-primary-100/20 to-primary-200/20 dark:from-primary-900/20 dark:to-primary-800/20 blur-3xl transition-transform duration-100"
-        style={{
-          transform: `translate(${mousePosition.x - 250}px, ${mousePosition.y - 250}px)`,
-        }}
-      />
+      <CursorHalo />
 
       <NavigationMenu />
 
