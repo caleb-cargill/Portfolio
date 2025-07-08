@@ -17,6 +17,14 @@ const settingsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    aboutMeImgOne: {
+        type: String,
+        required: true
+    },
+    aboutMeImgTwo: {
+        type: String,
+        required: true
+    },
     siteLogoUrl: {
         type: String,
         required: true
