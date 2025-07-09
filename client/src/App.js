@@ -48,7 +48,7 @@ function App() {
             {settings?.missionStatement}
           </h2>
           <div className="max-w-3xl mx-auto">
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
               {settings?.impactStatement}
             </p>
           </div>
@@ -69,15 +69,15 @@ function App() {
           About Me
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="rrow-start-1 p-6 glass rounded-2xl flex items-center">
-            <p className="text-gray-600 dark:text-gray-300">
+          <div className="row-start-1 justify-self-start self-start p-6 glass rounded-2xl inline-flex items-center">
+            <p className="text-xl text-gray-600 dark:text-gray-300">
               {settings?.aboutMeOne}
             </p>
           </div>
-          <img className="row-start-2 md:row-start-1 md:col-start-1 rounded-2xl" src="https://images.unsplash.com/photo-1504439268584-b72c5019471e?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Family"/>
-          <img className="row-start-4 md:row-start-2 rounded-2xl" src="https://images.unsplash.com/photo-1530143311094-34d807799e8f?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Family"/>
-          <div className="row-start-3 md:row-start-2 md:col-start-1 p-6 glass rounded-2xl flex items-center">
-            <p className="text-gray-600 dark:text-gray-300">
+          <img className="row-start-2 md:row-start-1 md:col-start-1 rounded-2xl" src={settings?.aboutMeImgTwo} alt="Caleb and his daughter"/>
+          <img className="row-start-4 md:row-start-2 rounded-2xl" src={settings?.aboutMeImgOne} alt="Caleb and his wife and daughter"/>
+          <div className="row-start-3 md:row-start-2 md:col-start-1 justify-self-start self-start p-6 glass rounded-2xl flex items-center">
+            <p className="text-xl text-gray-600 dark:text-gray-300">
               {settings?.aboutMeTwo}
             </p>
           </div>
