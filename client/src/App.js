@@ -70,14 +70,14 @@ function App() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="row-start-1 justify-self-start self-start p-6 glass rounded-2xl inline-flex items-center">
-            <p className="text-xl text-gray-600 dark:text-gray-300">
+            <p className="text-xl text-gray-600 dark:text-gray-300" style={{whiteSpace: 'pre-line'}}>
               {settings?.aboutMeOne}
             </p>
           </div>
           <img className="row-start-2 md:row-start-1 md:col-start-1 rounded-2xl" src={settings?.aboutMeImgTwo} alt="Caleb and his daughter"/>
           <img className="row-start-4 md:row-start-2 rounded-2xl" src={settings?.aboutMeImgOne} alt="Caleb and his wife and daughter"/>
           <div className="row-start-3 md:row-start-2 md:col-start-1 justify-self-start self-start p-6 glass rounded-2xl flex items-center">
-            <p className="text-xl text-gray-600 dark:text-gray-300">
+            <p className="text-xl text-gray-600 dark:text-gray-300" style={{whiteSpace: 'pre-line'}}>
               {settings?.aboutMeTwo}
             </p>
           </div>
