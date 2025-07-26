@@ -18,21 +18,22 @@ const Projects = () => {
     const ProjectCard = ({ project }) => {
         return (
             <motion.div
-                className="glass rounded-2xl">
-                <div className="relative aspect-video">
-                    <img 
-                        src={project.imageUrl} 
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                </div>
+                className="relative group">
+                <div className="absolute top-4 left-4 w-full h-full bg-primary-600 rounded-lg z-0"></div>
+
+                <img 
+                    src={project.imageUrl} 
+                    alt={project.title}
+                    className="relative w-full h-full object-cover rounded-2xl z-10 aspect-video"
+                />
+                    
                 
-                <div className="p-6">
+                <div className="absolute inset-0 p-6 glass rounded-2xl z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <h3 className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-2">
                         {project.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-2">
+                    
+                    <p className="text-gray-600 mb-2">
                         {project.description}
                     </p>
 
