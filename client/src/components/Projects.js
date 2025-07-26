@@ -32,10 +32,6 @@ const Projects = () => {
                     <h3 className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-2">
                         {project.title}
                     </h3>
-                    
-                    <p className="text-gray-600 mb-2">
-                        {project.description}
-                    </p>
 
                     <div>
                         {project.tags && project.tags.map((tag) => {
