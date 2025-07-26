@@ -6,16 +6,19 @@ const SocialLinks = () => {
   return (
     <div className="fixed left-2 lg:left-8 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-6 z-50">
       {socials.map((link, index) => (
-        <a
+        <div className="flex group">
+          <a
           key={index}
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+          className="flex items-center text-gray-600 dark:text-gray-400 group-hover:text-primary-600 transition-colors duration-200"
           title={link.name}
         >
-          {link.icon}
+          {link.icon} 
+          <p className='opacity-0 group-hover:opacity-100 ml-2 text-primary-600 transition-colors duration-200'>{link.name}</p>
         </a>
+        </div>
       ))}
     </div>
   );
