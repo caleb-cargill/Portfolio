@@ -6,7 +6,7 @@ const SocialLinks = () => {
   return (
     <div className="fixed left-2 lg:left-8 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-6 z-50">
       {socials.map((link, index) => (
-        <div className="flex group">
+        <div className="flex group" key={index}>
           <a
           key={index}
           href={link.url}
