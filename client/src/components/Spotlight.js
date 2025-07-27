@@ -1,10 +1,24 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { motion } from "framer-motion";
 import { endpoints } from '../api/endpoints';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const Spotlight = () => {
     const [spotlightProject, setSpotlightProject] = useState(null);
+    const fadeIn = useAnimation();
+    const [ref, inView] = useInView({
+        threshold: 0.25, 
+        triggerOnce: false,
+    });
+
+    useEffect(() => {
+        if (inView) {
+            fadeIn.start({ opacity: 1, transition: { duration: 2 } });
+        } else {
+            fadeIn.start({ opacity: 0, transition: { duration: 2 } });
+        }
+    }, [fadeIn, inView]);
 
     useEffect(() => {
         axios.get(endpoints.spotlightProject)
@@ -19,20 +33,17 @@ const Spotlight = () => {
     return (
         <section>
             <motion.div 
-                className="glass"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                className="glass rounded-2xl"
+                initial={{ opacity: 0 }}
+                animate={fadeIn}
+                ref={ref}
             >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className="relative aspect-video lg:aspect-auto">
-                        <img 
-                            src={spotlightProject.imageUrl} 
-                            alt={spotlightProject.title}
-                            className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    </div>
+                    <img 
+                        src={spotlightProject.imageUrl} 
+                        alt={spotlightProject.title}
+                        className="w-full h-full object-fit rounded-tl-2xl rounded-bl-2xl"
+                    />
                     
                     <div className="p-8 lg:p-12">
                         <h3 className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-4">
