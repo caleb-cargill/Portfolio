@@ -36,4 +36,17 @@
   .toggle {
     @apply cursor-pointer rounded-xl px-4 py-2 text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md shadow-md transition-all peer-checked:bg-white/30 peer-checked:ring-2 peer-checked:ring-white/60;
   }
+  @keyframes pulse-highlight {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+  
+  .pulse {
+    animation: pulse-highlight 3s infinite ease-in-out;
+  }
+
 } 

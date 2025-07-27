@@ -3,6 +3,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import NavigationMenu from './components/NavigationMenu';
 import SocialLinks from './components/SocialLinks';
+import FixedEmail from './components/FixedEmail';
 import Spotlight from './components/Spotlight';
 import Footer from './components/Footer';
 import About from './components/About';
@@ -32,6 +33,7 @@ function App() {
       <NavigationMenu />
 
       <SocialLinks />
+      <FixedEmail />
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-[80vh] flex items-center justify-center glass">          

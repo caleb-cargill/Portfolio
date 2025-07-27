@@ -86,7 +86,7 @@ const Experience = () => {
         return parts.map((part, index) => {
             const isMatch = skills.some(skill => skill.toLowerCase() === part.toLowerCase());
             return isMatch ? (
-            <span key={index} className="text-primary-400 font-semibold">
+            <span key={index} className="text-primary-400 font-semibold pulse">
                 {part}
             </span>
             ) : (
