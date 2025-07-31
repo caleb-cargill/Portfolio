@@ -19,7 +19,7 @@ const Projects = () => {
         return (
             <motion.div
                 className="relative group">
-                <div className="absolute top-4 left-4 w-full h-full bg-primary-600 rounded-lg z-0"></div>
+                <div className="absolute top-2 left-2 lg:top-4 lg:left-4 w-full h-full bg-primary-600 rounded-lg z-0"></div>
 
                 <img 
                     src={project.imageUrl} 

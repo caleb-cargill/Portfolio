@@ -14,7 +14,7 @@ const FixedEmail = () => {
     }, []);
 
   return (
-    <div className="transform rotate-90 origin-right fixed right-2 lg:right-8 top-1/2 -translate-y-1/2 translate-y-[250%] hidden md:flex flex-col z-50">
+    <div className="transform rotate-90 origin-right fixed right-3 top-1/2 -translate-y-1/2 translate-y-[250%] hidden md:flex flex-col z-50">
         <a href={'mailto:' + (settings?.socialLinks.email || '')}
           target="_blank"
           rel="noopener noreferrer"

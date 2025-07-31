@@ -42,7 +42,7 @@ const Spotlight = () => {
                     <img 
                         src={spotlightProject.imageUrl} 
                         alt={spotlightProject.title}
-                        className="w-full h-full object-fit rounded-tl-2xl rounded-bl-2xl"
+                        className="w-full h-full object-fit rounded-tr-2xl rounded-tl-2xl lg:rounded-tr-none lg:rounded-bl-2xl"
                     />
                     
                     <div className="p-8 lg:p-12">

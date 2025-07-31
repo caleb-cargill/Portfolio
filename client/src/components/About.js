@@ -39,7 +39,7 @@ const About = ({settings}) => {
         />
 
         <motion.div
-          className="row-start-1 justify-self-start self-start p-6 glass rounded-2xl inline-flex items-center"
+          className="row-start-1 p-6 glass rounded-2xl inline-flex items-center"
           initial={{ opacity: 0, x: -1000 }}
           animate={rightToLeft}
         >
@@ -49,7 +49,7 @@ const About = ({settings}) => {
         </motion.div>
 
         <motion.div
-          className="row-start-3 md:row-start-2 md:col-start-1 justify-self-start self-start p-6 glass rounded-2xl flex items-center"
+          className="row-start-3 md:row-start-2 md:col-start-1 p-6 glass rounded-2xl flex items-center"
           initial={{ opacity: 0, x: 1000 }}
           animate={leftToRight}
         >
