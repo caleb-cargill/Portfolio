@@ -32,7 +32,7 @@ const About = ({settings}) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <motion.img
           className="row-start-2 md:row-start-1 md:col-start-1 rounded-2xl"
-          src={settings?.aboutMeImgTwo}
+          src={settings?.aboutMeImgOne}
           alt="Caleb and his daughter"
           initial={{ opacity: 0, x: 1000 }}
           animate={leftToRight}
@@ -60,7 +60,7 @@ const About = ({settings}) => {
 
         <motion.img
           className="row-start-4 md:row-start-2 rounded-2xl"
-          src={settings?.aboutMeImgOne}
+          src={settings?.aboutMeImgTwo}
           alt="Caleb and his wife and daughter"
           initial={{ opacity: 0, x: -1000 }}
           animate={rightToLeft}
